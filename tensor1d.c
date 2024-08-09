@@ -105,6 +105,15 @@ Tensor* tensor_arange(int size) {
     return t;
 }
 
+// torch.ones(size)
+Tensor* tensor_ones(int size){
+    Tensor* t = tensor_empty(size);
+    for (int i = 0; i < t->size; i++){
+        tensor_setitem(t, i, 1.0f);
+    }
+    return t;
+}
+
 int logical_to_physical(Tensor *t, int ix) {
     int idx = t->offset + ix * t->stride;
     return idx;
@@ -264,6 +273,9 @@ void tensor_free(Tensor* t) {
 // ----------------------------------------------------------------------------
 
 int main(int argc, char *argv[]) {
+    // tensor ones
+    Tensor* to = tensor_ones(20);
+    tensor_print(to);
     // create a tensor with 20 elements
     Tensor* t = tensor_arange(20);
     tensor_print(t);
