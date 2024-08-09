@@ -43,6 +43,9 @@ t3 = t + t2
 
 # add two tensors together with broadcasting
 t4 = t + tensor1d.tensor([10.0])
+
+# 1D tensor of [1, 1, 1, .....]
+t5 = tensor1d.ones(20)
 ```
 
 Finally the tests use [pytest](https://docs.pytest.org/en/stable/) and can be found in [test_tensor1d.py](test_tensor1d.py). You can run this as `pytest test_tensor1d.py`.
