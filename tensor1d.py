@@ -19,7 +19,6 @@ typedef struct {
 } Tensor;
 
 Tensor* tensor_empty(int size);
-Tensor* tensor_zeros(int size);
 Tensor* tensor_ones(int size);
 int logical_to_physical(Tensor *t, int ix);
 float tensor_getitem(Tensor* t, int ix);
@@ -116,10 +115,6 @@ def empty(size):
 
 def arange(size):
     c_tensor = lib.tensor_arange(size)
-    return Tensor(c_tensor=c_tensor)
-
-def zeros(size):
-    c_tensor = lib.tensor_zeros(size)
     return Tensor(c_tensor=c_tensor)
 
 def ones(size):
